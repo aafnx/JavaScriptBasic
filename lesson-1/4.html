@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<title>Homework</title>
+  <meta charset="UTF-8">
+  <title>Homework</title>
 </head>
 
 <body>
-	<!--
+  <!--
 Необязательное задание.
 
 Необходимо от пользователя получить число.
@@ -27,17 +27,17 @@
 
 Уточнение: пользователь всегда вводит корректное положительное целое число.
 -->
-	<script>
-		"use strict";
+  <script>
+    "use strict";
 
-		let userNumber = +prompt('Введите число: ');
+    let userNumber = +prompt('Введите число: ');
 
-		let hundredsNumber = Math.trunc(userNumber / 100) % 10;
-		let dozensNumber = Math.trunc(userNumber / 10) % 10;
-		let unitNumber = userNumber % 10;
+    let hundredsNumber = Math.trunc(userNumber / 100) % 10;
+    let dozensNumber = Math.trunc(userNumber / 10) % 10;
+    let unitNumber = userNumber % 10;
 
-		console.log(`В числе ${userNumber} количество сотен: ${hundredsNumber}, десятков: ${dozensNumber}, единиц: ${unitNumber}`);
-	</script>
+    console.log(`В числе ${userNumber} количество сотен: ${hundredsNumber}, десятков: ${dozensNumber}, единиц: ${unitNumber}`);
+  </script>
 </body>
 
 </html>
