@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Homework</title>
 </head>
+
 <body>
-<!--
+  <!--
 Обязательное задание.
 
 Необходимо данное задание выполнить в es5 стиле и в es6 стиле.
@@ -47,10 +49,68 @@
 что-нибудь пропустить.
 4. Если непонятно условие - задайте вопрос.
 -->
-<script>
-  "use strict";
+  <script>
+    "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
-</script>
+    // ES5
+    function PostES5(author, text) {
+      this.author = author;
+      this.text = text;
+      this.date = Date();
+    }
+
+    PostES5.prototype.edit = function (text) {
+      this.text = text;
+      this.date = Date();
+    }
+
+
+    function AttachedPostES5(author, text) {
+      PostES5.call(this, author, text);
+      this.highlighted = false;
+    }
+
+    AttachedPostES5.prototype = Object.create(PostES5.prototype);
+    AttachedPostES5.prototype.constructor = AttachedPostES5;
+
+    AttachedPostES5.prototype.makeTextHighlighted = function () {
+      this.highlighted = true;
+    }
+
+    const userPost = new PostES5('Andrei', 'Lorem ipsum dolor.')
+
+    const userAttchedPost = new AttachedPostES5('Joe', 'attached ES5')
+
+
+    // ES6
+    class PostES6 {
+      constructor(author, text) {
+        this.author = author;
+        this.text = text;
+        this.date = Date();
+      }
+
+      edit(text) {
+        this.text = text;
+        this.date = Date();
+      }
+    }
+
+    class AttachedPostES6 extends PostES6 {
+      constructor(author, text) {
+        super(author, text);
+        this.highlighted = false;
+      }
+      makeTextHighlighted() {
+        this.highlighted = true;
+      }
+    }
+
+    const userPost2 = new PostES6('Jhon', 'Hello, World!')
+
+    const userAttchedPost2 = new AttachedPostES6('Kate', 'attached ES6')
+
+  </script>
 </body>
+
 </html>
