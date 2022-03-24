@@ -56,12 +56,12 @@
     function PostES5(author, text) {
       this.author = author;
       this.text = text;
-      this.date = Date();
+      this.date = new Date();
     }
 
     PostES5.prototype.edit = function (text) {
       this.text = text;
-      this.date = Date();
+      this.date = new Date();
     }
 
 
@@ -75,11 +75,21 @@
 
     AttachedPostES5.prototype.makeTextHighlighted = function () {
       this.highlighted = true;
+      this.date = new Date();
     }
 
     const userPost = new PostES5('Andrei', 'Lorem ipsum dolor.')
 
     const userAttchedPost = new AttachedPostES5('Joe', 'attached ES5')
+
+    console.log(userPost);
+    userPost.edit('new lorem');
+    console.log(userPost);
+
+    console.log(userAttchedPost);
+    userAttchedPost.edit('new attached');
+    userAttchedPost.makeTextHighlighted();
+    console.log(userAttchedPost);
 
 
     // ES6
@@ -87,12 +97,12 @@
       constructor(author, text) {
         this.author = author;
         this.text = text;
-        this.date = Date();
+        this.date = new Date();
       }
 
       edit(text) {
         this.text = text;
-        this.date = Date();
+        this.date = new Date();
       }
     }
 
@@ -106,9 +116,18 @@
       }
     }
 
-    const userPost2 = new PostES6('Jhon', 'Hello, World!')
+    const userPost2 = new PostES6('Jhon', 'Hello, World!');
 
-    const userAttchedPost2 = new AttachedPostES6('Kate', 'attached ES6')
+    const userAttchedPost2 = new AttachedPostES6('Kate', 'attached ES6');
+
+    console.log(userPost2);
+    userPost2.edit('new world');
+    console.log(userPost2);
+
+    console.log(userAttchedPost2);
+    userAttchedPost2.edit('new ES6');
+    userAttchedPost2.makeTextHighlighted();
+    console.log(userAttchedPost2);
 
   </script>
 </body>
