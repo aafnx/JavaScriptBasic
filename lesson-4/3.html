@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Homework</title>
+</head>
+
+<body>
+  <!--
+Необязательное задание.
+
+Необходимо создать функцию getDigitsOfNumber, которая принимает целое
+положительное число в диапазоне от 0 до 1000.
+Функция должна вернуть обычный объект с тремя свойствами:
+1. units - содержит число, количество единиц в параметре функции.
+2. dozens - содержит число, количество десятков в параметре функции.
+3. hundreds - содержит число, количество сотен в параметре функции.
+Если функции было передано не целое положительное число, либо число в ином
+диапазоне, нежели задано в условии, функция должна вывести в консоль информацию
+об ошибке и вернуть пустой объект.
+Необходимо также прописать jsdoc для данной функции.
+
+Подсказка:
+У объекта console есть разные методы, мы часто используем console.log для того
+чтобы вывести в консоль какое-то значение, однако есть и другие методы, найдите
+в интернете какие методы существуют и используйте "правильный метод" в нужном
+месте. Обратите внимание что функция не должна выбрасывать ошибку, она должна
+только вывести в консоль информацию о том, что что-то пошло не так.
+Обратите внимание на слова "от 0 до 1000", это означает диапазон [0, 999], что
+можно прочитать как "от нуля до 999 включительно".
+-->
+  <script>
+    "use strict";
+
+    "use strict";
+    /**
+     * @description принимает целое положительное число от 0 до 1000,
+     *              раскладывает число на сотни, десятки, единицы
+     *              возвращает объект, в свойствах которого указано
+     *              сколько сотен, десятков, единиц
+     * @param  {number} number
+     * @return {object} - пустой объект, если значение некорретное. Если корректное
+     *                    возвращает объект, в свойствах которого указано
+     *                    сколько сотен, десятков, единиц
+     */
+    function getDigitsOfNumber(number) {
+      const resultObj = {};
+      if (checkNumber(number)) {
+        resultObj.hundreds = Math.trunc(number / 100);
+        resultObj.dozens = Math.trunc(number / 10 % 10);
+        resultObj.units = Math.trunc(number % 10);
+      };
+      return resultObj;
+    }
+
+    /**
+     * @description проводит проверки, подтверждая что переданное значение
+     *              целое положительное число в диапазоне от 0 до 1000
+     * @param  {number} number
+     * @throws error если не проходит проверку 
+     * @return  {boolean} true - число проверки прошло, 
+     *                    false - проверки не прошло
+     */
+    function checkNumber(number) {
+      const result = isNumber(number) && isPositiveNumber(number) &&
+        isIntegerNumber(number) && isNumberInRange(number);
+
+      if (result) {
+        return true;
+      }
+      console.error(`Вы ввели ${number}, а нужно было целое число в диапазоне от 0 до 1000`);
+      return false;
+    }
+
+    /**
+     * @description проверяет является ли передаваемое значение числом
+     * @param  {number} number
+     * @return  {boolean} true - число, false - не число
+     */
+    function isNumber(number) {
+      return !isNaN(number) && typeof number === 'number'
+    }
+
+    /**
+     * @description проверяет является ли число положительным
+     * @param  {number} number
+     * @return  {boolean} true - положительное, false - отрицательное
+     */
+    function isPositiveNumber(number) {
+      return number >= 0;
+    }
+
+    /**
+     * @description проверяет является ли число целым
+     * @param  {number} number
+     * @return  {boolean} true - целое, false - дробное
+     */
+    function isIntegerNumber(number) {
+      return number * 10 % 10 === 0;
+    }
+
+    /**
+     * @description проверяет находится ли число в диапазоне от 0 до 1000
+     * @param  {number} number
+     * @return  {boolean} true - в диапазоне, false - вне диапазона
+     */
+    function isNumberInRange(number) {
+      return number < 1000;
+    }
+
+    console.log(getDigitsOfNumber(765));
+    console.log(getDigitsOfNumber(-89));
+    console.log(getDigitsOfNumber(123.5));
+    console.log(getDigitsOfNumber(1000));
+    console.log(getDigitsOfNumber('text'));
+    console.log(getDigitsOfNumber(true));
+    console.log(getDigitsOfNumber(NaN));
+    console.log(getDigitsOfNumber(Infinity));
+    console.log(getDigitsOfNumber(undefined));
+  </script>
+</body>
+
+</html>
