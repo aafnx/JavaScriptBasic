@@ -133,9 +133,7 @@
      */
 
     const liEls = document.querySelectorAll('li:nth-child(2n)');
-    for (const element of liEls) {
-      element.style.backgroundColor = 'purple';
-    }
+    liEls.forEach(element => element.style.backgroundColor = 'purple');
 
   </script>
 </body>
