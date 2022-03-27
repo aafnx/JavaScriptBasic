@@ -58,11 +58,6 @@
     const menuEl = document.querySelector('.menu');
     menuEl.classList.remove('dropdown-menu');
 
-    /* либо же можно сделать поиск по всем классам menu и удалить у них dropdown
-    const menuEls = document.querySelectorAll('.menu');
-    menuEls.forEach(element => element.classList.remove('dropdown-menu'));
-    */
-
     /*
     4. Используя метод insertAdjacentHTML добавьте после div'a с классом
     "dropdown" следующую разметку:
@@ -85,7 +80,7 @@
     атрибут "aria-labelledby" равный "dropdownMenuButton" используя dataset.
      */
 
-    // сделал сразу через поиск сразу всех элементов
+    // сделал через поиск сразу всех элементов
     const labelledbyEl = document.querySelectorAll('[aria-labelledby="dropdownMenuButton"]');
     labelledbyEl.forEach(element => element.dataset.dd = 3);
 
@@ -110,8 +105,6 @@
     for (const attribute of buttonEl.attributes) {
       console.dir(`Атрибут ${attribute.name} содержит значение: ${attribute.value}`);
     }
-
-
 
   </script>
 </body>
