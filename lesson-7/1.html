@@ -67,7 +67,7 @@
     const navLinkEls = document.querySelectorAll('.nav-link');
     const divTextEl = document.querySelector('div.text');
 
-    document.querySelector('.nav').addEventListener('click', event => {
+    document.querySelector('.nav-tabs').addEventListener('click', event => {
       const activeEl = event.target;
       if (!activeEl.classList.contains('nav-link')) {
         return;

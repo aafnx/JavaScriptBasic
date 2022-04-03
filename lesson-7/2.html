@@ -85,7 +85,7 @@
         return;
       }
       productsEl.innerHTML = products[event.target.dataset.type]
-        .map(product => product.getProductMarkup());
+        .map(product => product.getProductMarkup()).join('');
     });
 
   </script>
