@@ -4,6 +4,29 @@ body {
     font-family: Lato, sans-serif;
 }
 
+.rightHeader {
+  position: relative;
+}
+
+.basketProductsWrap {
+  border:1px solid black;
+  border-collapse: collapse;
+  background-color: white;
+  min-width: 600px;
+  position: absolute;
+  top: 55px;
+  right: 0;
+}
+
+.basketProductsWrap td {
+  border: 1px solid #000;
+}
+
+.basketProductsWrap > tfoot > tr {
+  text-align: center;
+  font-weight: bold;
+}
+
 .header {
     background: #222222;
     height: 74px;
@@ -58,6 +81,7 @@ body {
 
 .cartIconWrap {
     position: relative;
+    cursor: pointer;
 }
 
 .cartIconWrap span {
@@ -73,6 +97,7 @@ body {
     top: -19px;
     font-size: 12px;
     line-height: 19px;
+    visibility: hidden;
 }
 
 .newArrivals {
